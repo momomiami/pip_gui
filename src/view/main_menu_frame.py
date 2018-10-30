@@ -35,8 +35,9 @@ class Main_menu_frame(ttk.Frame):
         self.l_option.grid(column = 0, row = 2)
         if(self.cb_operation.get() == "List"):
             self.cb_option = ttk.Combobox(self,
-                                          values = ["None"] + self.root_window.cont_ref
-                                          .get_option(self.cb_operation.get())
-                                          , state="readonly")
+                                          values = ["None"] +
+                                                   list(self.root_window.cont_ref
+                                                        .get_option(self.cb_operation.get()).values())
+                                          , state="readonly", font=self.font)
             self.cb_option.grid(column=1, row=2)
 
