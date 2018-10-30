@@ -9,7 +9,9 @@ class General:
 class List:
     def __init__(self):
         self.command = []
-        self.available_option = ["-o","-u","-e"]
+        self.available_option = {"-o":"List outdated packages",
+                                 "-u":"List uptodate packages",
+                                 "-e":"List editable projects."}
         self.command.append("list")
 
     def format_json(self):
