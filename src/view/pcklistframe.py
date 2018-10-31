@@ -22,7 +22,7 @@ class PckListFrame(ttk.Frame):
                 .grid(column=0, row=0)
 
     def create_list_box(self, option):
-        self.listboxPck = Listbox(self, selectmode="single", width=0, height=20)
+        self.listboxPck = Listbox(self, selectmode="single", width=0, height=15)
         self.listboxPck.grid(column=0, row=1)
         self.scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.listboxPck.yview)
         self.scrollbar.grid(column=1, row=1, sticky=(N, S))

@@ -32,6 +32,18 @@ class Controller:
             command_list.editable_projects()
         elif option == "-u":
             command_list.uptodate_pck()
+        elif option == "-l":
+            command_list.local()
+        elif option == "--user":
+            command_list.user_site()
+        elif option == "--pre":
+            command_list.pre()
+        elif option == "--not-required":
+            command_list.not_required()
+        elif option == "--exclude-editable":
+            command_list.exclude_editable()
+        elif option == "--include-editable":
+            command_list.include_editable()
         pck_list_name = []
         pip_list_pck = json.loads(self.pip_subprocess.run_subprocess(command_list))
         for pck in pip_list_pck:
