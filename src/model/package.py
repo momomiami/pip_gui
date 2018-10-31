@@ -1,13 +1,12 @@
 class PipPackage:
-    '''
+    """
     Class representing information about a pip package.
-    '''
+    """
     def __init__(self, pck_string_info):
-        '''
-
+        """
         :param pck_string_info: It represents information (byte type) about a
         particular package retrieved by the subprocess Module.
-        '''
+        """
         pck_string_info = pck_string_info.decode("utf-8")
         self.name = ""
         self.version = ""
@@ -22,12 +21,12 @@ class PipPackage:
         self.string_info_to_object(pck_string_info)
 
     def string_info_to_object(self, pck_string_info):
-        '''
+        """
         Function used to parse the information given by the subprocess and fill the package object with the
         corresponding string information.
         :param pck_string_info: It represents information (byte type) about a
         particular package retrieved by the subprocess Module.
-        '''
+        """
         index = self.get_index_from_string(pck_string_info, "Name:", "Version:")
         self.name = pck_string_info[index[0]:index[1]].strip()
         pck_string_info = pck_string_info[index[1]:]
@@ -70,21 +69,21 @@ class PipPackage:
         self.require_by_list = [x.strip() for x in tmp_require_list_by.split(',')]
 
     def get_index_from_string(self, string_to_search, search_word, next_stop_word="\r\n"):
-        '''
+        """
         Used to retrieve the information contained between two words in a string
         :param string_to_search: The complete string to search.
         :param search_word: The starting delimiter of the string
         :param next_stop_word: The ending delimiter of the string
         :return: A array of two index. The information is present between these two index.
-        '''
+        """
         index_start = string_to_search.find(search_word)
         index_stop = string_to_search.find(next_stop_word)
         return [index_start + len(search_word) + 1, index_stop]
 
     def print_pck_info(self):
-        '''
+        """
         Print information about a package, only for debugging purpose
-        '''
+        """
         print(self.name)
         print(self.version)
         print(self.summary)
