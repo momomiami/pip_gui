@@ -24,7 +24,6 @@ class Subprocess:
         '''
         return subprocess.check_output([self.python_path, '-m', 'pip']+command.command)
 
-
     def check_sys_exe(self):
         '''
         raise an AssertionError if Python is unable to retrieve
