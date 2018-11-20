@@ -53,9 +53,11 @@ class List:
     def include_editable(self):
         self.command.append("--include-editable")
 
+
 class Show:
     def __init__(self, pck_name):
         self.command = []
         self.available_option = []
         self.command.append("show")
         self.command.append(pck_name)
+        self.command.append("-f")

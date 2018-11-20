@@ -18,6 +18,7 @@ class PipPackage:
         self.location = ""
         self.require_list = []
         self.require_by_list = []
+        self.pck_files = []
         self.string_info_to_object(pck_string_info)
 
     def string_info_to_object(self, pck_string_info):
@@ -67,6 +68,10 @@ class PipPackage:
         index = self.get_index_from_string(pck_string_info, "Required-by:")
         tmp_require_list_by = pck_string_info[index[0]:index[1]]
         self.require_by_list = [x.strip() for x in tmp_require_list_by.split(',')]
+        pck_string_info = pck_string_info[index[1]:]
+
+        self.pck_files = pck_string_info.splitlines()
+        del self.pck_files[0:2]
 
     def get_index_from_string(self, string_to_search, search_word, next_stop_word="\r\n"):
         """
@@ -79,18 +84,3 @@ class PipPackage:
         index_start = string_to_search.find(search_word)
         index_stop = string_to_search.find(next_stop_word)
         return [index_start + len(search_word) + 1, index_stop]
-
-    def print_pck_info(self):
-        """
-        Print information about a package, only for debugging purpose
-        """
-        print(self.name)
-        print(self.version)
-        print(self.summary)
-        print(self.home_page)
-        print(self.author)
-        print(self.author_email)
-        print(self.license_type)
-        print(self.location)
-        print(self.require_list)
-        print(self.require_by_list)
