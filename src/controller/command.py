@@ -1,10 +1,20 @@
 class General:
     def __init__(self):
         self.command = []
-        self.available_option = []
+        self.available_option = {}
 
     def version(self):
         self.command.append("-V")
+
+
+class Uninstall:
+
+    def __init__(self, pck_name):
+        self.command = []
+        self.available_option = {}
+        self.command.append("uninstall")
+        self.command.append(pck_name)
+        self.command.append("-y")
 
 
 class List:

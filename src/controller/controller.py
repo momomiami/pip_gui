@@ -54,6 +54,9 @@ class Controller:
         pck = PipPackage(self.pip_subprocess.run_subprocess(Show(pck_name)))
         return pck
 
+    def uninstall_pck(self, pck_name):
+        self.pip_subprocess.run_subprocess(Uninstall(pck_name))
+
     def get_option(self, command):
         if command == "List":
             return List().available_option
