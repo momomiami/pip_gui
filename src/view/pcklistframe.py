@@ -18,7 +18,7 @@ class PckListFrame(ttk.Frame):
         if option == "None":
             ttk.Label(self, text="List of installed packages:", font=self.font).grid(column=0, row=0)
         else:
-            ttk.Label(self, text=self.root_window.cont_ref.get_option("List")[option], font=self.font)\
+            ttk.Label(self, text=self.root_window.cont_ref.get_option("List")[option], font=self.font) \
                 .grid(column=0, row=0)
 
     def create_list_box(self, option):

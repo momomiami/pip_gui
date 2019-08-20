@@ -20,7 +20,10 @@ class Subprocess:
         Call a process to execute the given command
         :return: the output of the subprocess
         """
-        return subprocess.check_output([self.python_path, '-m', 'pip']+command.command)
+        try:
+            return subprocess.check_output([self.python_path, '-m', 'pip'] + command.command)
+        except subprocess.CalledProcessError as e:
+            output = e.output
 
     def check_sys_exe(self):
         """

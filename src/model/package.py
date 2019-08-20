@@ -2,6 +2,7 @@ class PipPackage:
     """
     Class representing information about a pip package.
     """
+
     def __init__(self, pck_string_info):
         """
         :param pck_string_info: It represents information (byte type) about a

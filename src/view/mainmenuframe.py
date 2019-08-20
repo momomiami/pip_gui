@@ -32,9 +32,11 @@ class MainMenuFrame(ttk.Frame):
                 self.root_window.create_pck_list_frame(self.cb_option.get())
             else:
                 self.root_window.create_pck_list_frame("None")
+        elif self.cb_operation.get() == "Search":
+            self.root_window.create_search_frame()
 
     def create_combobox(self):
-        self.cb_operation = ttk.Combobox(self, values=['List'], state="readonly", font=self.font)
+        self.cb_operation = ttk.Combobox(self, values=['List', 'Search'], state="readonly", font=self.font)
         self.cb_operation.grid(column=1, row=1)
         self.cb_operation.bind('<<ComboboxSelected>>', self.display_cbb_option)
 
@@ -44,4 +46,6 @@ class MainMenuFrame(ttk.Frame):
             self.cb_option = ttk.Combobox(self, values=["None"] + list(self.root_window.cont_ref.get_option(
                 self.cb_operation.get()).keys()), state="readonly", font=self.font)
             self.cb_option.grid(column=1, row=2)
-
+        elif self.cb_operation.get() == "Search":
+            self.cb_option = ttk.Combobox(self, values=["None"], state="readonly", font=self.font)
+            self.cb_option.grid(column=1, row=2)

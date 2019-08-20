@@ -3,6 +3,7 @@ from src.view.mainmenuframe import MainMenuFrame
 from src.view.menubar import MenuBar
 from src.view.pcklistframe import PckListFrame
 from src.view.pckinfoframe import PckInfoFrame
+from src.view.searchframe import Searchframe
 
 
 class MainWindow(Tk):
@@ -35,3 +36,8 @@ class MainWindow(Tk):
         self.reset_windows_widgets()
         MainMenuFrame(self)
         MenuBar(self)
+
+    def create_search_frame(self):
+        self.reset_windows_widgets()
+        MenuBar(self)
+        Searchframe(self)

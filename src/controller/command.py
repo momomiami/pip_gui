@@ -7,6 +7,13 @@ class General:
         self.command.append("-V")
 
 
+class Search:
+
+    def __init__(self, pck_search):
+        self.command = ["search"]
+        self.command.append(pck_search)
+
+
 class Uninstall:
 
     def __init__(self, pck_name):

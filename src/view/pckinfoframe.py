@@ -108,5 +108,5 @@ class PckInfoFrame(ttk.Frame):
                                          title='Uninstall ' + self.pck.name)
         if user_input:
             self.root_window.cont_ref.uninstall_pck(self.pck.name)
-            messagebox.showinfo(message=self.pck.name+' has been successfully uninstalled')
+            messagebox.showinfo(message=self.pck.name + ' has been successfully uninstalled')
             self.root_window.create_main_menu_frame()
